@@ -1,8 +1,9 @@
-import './ManageUsers.css';
-const ManageUsers = () => {
+import './ManageItems.css';
+
+const ManageItems = () => {
     return (
         <div>
-            <div className="users-container text-light">
+            <div className="items-container text-light">
                 <div className="left-column">
                     category form
                 </div>
@@ -14,4 +15,4 @@ const ManageUsers = () => {
     )
 }
 
-export default ManageUsers;
+export default ManageItems;

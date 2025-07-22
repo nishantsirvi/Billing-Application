@@ -1,17 +1,18 @@
 import'./ManageCategory.css';
+
 const ManageCategory = () => {
     return (
         <div>
             <div className="category-container text-light">
             <div className="left-column">
-                <CategoryForm />
+                category form
             </div>
             <div className="right-column">
-                <CategoryList />
+                list of categories
             </div>
             </div>
         </div>
-    );
+    )
 }
 
 export default ManageCategory;
