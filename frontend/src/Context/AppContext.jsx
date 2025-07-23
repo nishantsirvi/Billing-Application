@@ -1,7 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { fetchCategories } from "../Service/CategoryService";
 
-export const AppContext = createContext(null);
+export let AppContext;
+AppContext = createContext(null);
 
 export const AppContextProvider = (props) => {
     
