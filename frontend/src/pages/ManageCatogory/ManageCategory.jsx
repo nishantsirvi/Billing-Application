@@ -1,3 +1,4 @@
+import Categoryform from '../../components/Categoryform/Categoryform';
 import'./ManageCategory.css';
 
 const ManageCategory = () => {
@@ -5,7 +6,7 @@ const ManageCategory = () => {
         <div>
             <div className="category-container text-light">
             <div className="left-column">
-                category form
+                <Categoryform />
             </div>
             <div className="right-column">
                 list of categories
