@@ -1,21 +1,28 @@
-/*import {createContext, useEffect, useLayoutEffect} from "react";
+import { createContext, useEffect, useState } from "react";
+import { fetchCategories } from "../Service/CategoryService";
 
 export const AppContext = createContext(null);
 
-export const AppContestProvider = (props) => {
-
-
-    useEffect(()=>{
-        
-
-    }, []);
+export const AppContextProvider = (props) => {
     
-    const contextValue = {
+    const [categories , setCategories] = useState([]);
+       
+    useEffect(() => {
+        async function loadData() {
+            const response =await fetchCategories();
+            setCategories(response.data);
+
+        }
+        loadData();
+    }, []);
+
+    const contextValue ={
+        categories,
+        setCategories
 
     }
 
-    return <AppContest.Provider value={contextValue}>
+    return <AppContext.Provider value={contextValue}>
         {props.children}
-    </AppContest.Provider>
-
-}*/
+    </AppContext.Provider>
+}
