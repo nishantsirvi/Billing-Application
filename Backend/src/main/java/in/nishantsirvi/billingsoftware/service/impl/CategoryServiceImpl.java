@@ -5,6 +5,7 @@ import in.nishantsirvi.billingsoftware.entity.CategoryEntity;
 import in.nishantsirvi.billingsoftware.io.CategoryRequest;
 import in.nishantsirvi.billingsoftware.io.CategoryResponse;
 import in.nishantsirvi.billingsoftware.repository.CategoryRepository;
+import in.nishantsirvi.billingsoftware.repository.ItemRepository;
 import in.nishantsirvi.billingsoftware.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.couchbase.CouchbaseProperties;
@@ -26,6 +27,8 @@ import java.util.stream.Collectors;
 public class CategoryServiceImpl implements CategoryService {
 
     private final CategoryRepository categoryRepository;
+
+    private final ItemRepository itemRepository;
 
     @Override
     public CategoryResponse add(CategoryRequest request, MultipartFile file) throws IOException {
@@ -66,6 +69,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     private CategoryResponse convertToResponse(CategoryEntity newCategory) {
+        Integer itemsCount = itemRepository.countByCategoryId(newCategory.getId());
         return CategoryResponse.builder()
                 .categoryId(newCategory.getCategoryId())
                 .name(newCategory.getName())
@@ -74,6 +78,7 @@ public class CategoryServiceImpl implements CategoryService {
                 .imgUrl(newCategory.getImgUrl())
                 .createdAt(newCategory.getCreatedAt())
                 .updatedAt(newCategory.getUpdatedAt())
+                .items(itemsCount)
                 .build();
     }
 

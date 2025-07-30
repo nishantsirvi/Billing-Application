@@ -15,14 +15,13 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/categories")
 @RequiredArgsConstructor
 public class CategoryController {
 
     private final CategoryService categoryService;
 
 
-    @PostMapping
+    @PostMapping("/admin/categories")
     @ResponseStatus(HttpStatus.CREATED)
     public CategoryResponse addCategory(@RequestPart("category") String categoryString,
                                         @RequestPart("file")MultipartFile file){
@@ -43,8 +42,8 @@ public class CategoryController {
         return categoryService.read();
     }
 
+    @DeleteMapping("/admin/categories/{categoryId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{categoryId}")
     public void remove(@PathVariable String categoryId){
         try{
             categoryService.delete(categoryId);
