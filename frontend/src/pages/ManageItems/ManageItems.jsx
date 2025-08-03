@@ -1,4 +1,4 @@
-import Itemform from '../../components/Itemform/itemform';
+import Itemform from '../../components/Itemform/Itemform';
 import Itemlist from '../../components/Itemlist/Itemlist';
 import './ManageItems.css';
 
