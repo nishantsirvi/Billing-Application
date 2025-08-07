@@ -14,13 +14,13 @@ const App = () => {
       {location.pathname !== '/login' && <Menubar />}
       <Toaster />
       <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/users" element={<ManageUsers />} />
-        <Route path="/items" element={<ManageItems />} />
-        <Route path="/category" element={<ManageCategory />} />
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/category" element={<ManageCategory />} />
+          <Route path="/users" element={<ManageUsers />} />
+          <Route path="/items" element={<ManageItems />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Dashboard />} />
       </Routes>
     </div>
   );

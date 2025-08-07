@@ -2,7 +2,7 @@ import './Menubar.css';
 import {assets} from "../../assets/assets.js";
 import {Link, Links, useNavigate} from "react-router-dom";
 import {useContext} from "react";
-import {AppContext} from "../../context/AppContext.jsx";
+import {AppContext} from "../../Context/AppContext.jsx";
 
 const Menubar = () => {
 
@@ -50,18 +50,16 @@ const Menubar = () => {
                         </a>
                         <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li>
-                                <a href="#!" className="dropdown-item">
-                                    Settings
-                                </a>
-                                <a href="#!" className="dropdown-item">
-                                    Activity log
-                                </a>
-                                <li>
-                                    <hr className="dropdown-divider" />
-                                </li>
-                                <a href="#!" className="dropdown-item" onClick={logout}>
-                                    Logout
-                                </a>
+                                <a href="#!" className="dropdown-item">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#!" className="dropdown-item">Activity log</a>
+                            </li>
+                            <li>
+                                <hr className="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a href="#!" className="dropdown-item" onClick={logout}>Logout</a>
                             </li>
                         </ul>
                     </li>

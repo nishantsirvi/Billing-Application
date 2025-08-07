@@ -32,12 +32,12 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryResponse add(CategoryRequest request, MultipartFile file) throws IOException {
-        String filename = UUID.randomUUID().toString()+"."+ StringUtils.getFilenameExtension(file.getOriginalFilename());
+        String filename = UUID.randomUUID().toString()+"."+StringUtils.getFilenameExtension(file.getOriginalFilename());
         Path uploadPath = Paths.get("uploads").toAbsolutePath().normalize();
         Files.createDirectories(uploadPath);
         Path targetLocation = uploadPath.resolve(filename);
         Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
-        String imgUrl = "http://localhost:8080/api/v1.0/uploads"+filename;
+        String imgUrl = "http://localhost:8080/api/v1.0/uploads/"+filename;
         CategoryEntity newCategory = convertToEntity(request);
         newCategory.setImgUrl(imgUrl);
         newCategory = categoryRepository.save(newCategory);
